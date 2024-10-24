@@ -1,0 +1,112 @@
+main {
+    font-family: 'Roboto';
+    background-image: url('../../../../public/images/background-login.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.container {
+    background-color: rgba(231, 219, 219, .3);
+    margin: auto;
+    height: 500px;
+    width: 30%;
+    border-radius: 10px;
+    /* border: 1px solid black; */
+    -webkit-box-shadow: -1px 9px 59px 16px rgba(31,29,29,0.3);
+    -moz-box-shadow: -1px 9px 59px 16px rgba(31,29,29,0.3);
+    box-shadow: -1px 9px 59px 16px rgba(31,29,29,0.3);
+}
+h1{ 
+    text-align: center;
+    font-size: 50px;
+    letter-spacing: 3px;
+    margin-top: 3px;
+
+    font-weight: bold;
+}
+h1 span {
+    color: #5D47C9;
+}
+h2 {
+    font-size: 40px;
+    margin-top: 22px;
+    margin-left: 15px;
+    margin-bottom: 40px;
+    position: sticky;
+}
+
+.container h2::after{
+    content: '';
+    background-color: #5D47C9;
+    display: inline-block;
+    width: 42px;
+    height: 4px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+input {
+    background-color: inherit;
+    display: flex;
+    margin-bottom: 40px;
+    margin-left: 30px;
+    border: none;  
+    border-bottom: 1px solid #2E2935;
+    color: #2E2935;
+    width: 80%;
+    padding: 10px 10px 10px 20px;
+    letter-spacing: 1px;
+}
+
+input:focus{
+    
+}
+
+a p {
+    text-align: right;
+    margin-right: 25px;
+    margin-bottom: 80px;
+}
+
+.button-container {
+    display: flex;
+}
+
+button {
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    background-color: #5D47C9;
+    border: none;
+    width: 80%;
+    font-weight: bold;
+    transition: background-color 0.5s ease;
+    transition: transform 0.5s ease;
+}
+
+button:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    background-color: #7163b6;
+}
+
+.footer{
+    text-align: center;
+    margin-top: 10px;
+}
+
+p span {
+    color: white;
+    margin-right: 70px;
+    /* margin-left: 15px; */
+}
+
+
