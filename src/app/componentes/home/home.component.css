@@ -61,6 +61,17 @@ nav {
     font-weight: 400;
 }
 
+.container-items ul li button{
+    background-color: #8362FA;
+    border: none;
+    border-radius: 5px;
+    padding: 2px 16px;
+}
+.container-items ul li button a {
+    color: white;
+    text-decoration: none;
+}
+
 .container-items ul li:hover{
     text-decoration: underline;
     cursor: pointer;
