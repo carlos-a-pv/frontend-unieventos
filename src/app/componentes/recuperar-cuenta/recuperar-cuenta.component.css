@@ -1,8 +1,8 @@
 h2 {
     font-size: 40px;
-    /* margin-top: 22px; */
+    margin-top: 22px;
     margin-left: 15px;
-    /* margin-bottom: 10px; */
+    margin-bottom: 40px;
     position: sticky;
 }
 
@@ -17,21 +17,22 @@ h2::after{
     left: 0;
 }
 
-.container-items {
+.main-container {
+    /* background-color: red; */
+    width: 80%;
     display: flex;
     flex-direction: column;
-    margin-left: 20px;
+    justify-self: center;
 }
 
+
 input{
-    display: flex;
-    width: 80%;
+    display: block;
+    width: 100%;
     background-color: transparent;
-    /* color: white; */
-    margin: 5px 0;
     border: none;
-    border-bottom: 1px solid #2E2935;
-    font-size: 18px;
+    border-bottom: solid 1px black;
+    margin-bottom: 90px;
     padding: 10px;
 }
 
@@ -40,16 +41,14 @@ input:focus{
 }
 
 button {
-    display: block;
     margin: 0 auto;
-    width: 80%;
-    background-color: #5D47C9;
+    padding: 10px;
+    border-radius: 5px;
     color: white;
-    font-weight: bold;
+    background-color: #5D47C9;
     border: none;
-    border-radius: 3px;
-    padding: 12px;
-    margin-top: 10px;
+    width: 100%;
+    font-weight: bold;
     transition: background-color 0.5s ease;
     transition: transform 0.5s ease;
 }
@@ -58,4 +57,24 @@ button:hover{
     transform: scale(1.1);
     cursor: pointer;
     background-color: #7163b6;
+}
+
+p{
+    margin-top: 20px;
+    color: white;
+    display: flex;
+}
+
+p span {
+    display: flex;
+    color: #8362FA
+}
+
+.container-items{
+    display: flex;
+    justify-content: space-between;
+}
+
+a{
+    text-decoration: none;
 }

@@ -1,20 +1,17 @@
-<main>
-    <div class="container">
-        <h1>Uni<span>eventos</span></h1>
-        <h2>Login</h2>
+<app-background>
+    <h2>Login</h2>
 
-        <input type="email" placeholder="Ingrese su correo" required>
-        <input type="password" placeholder="Ingrese su contraseña" required>
-        
-        <a routerLink="">
-            <p>¿Olvidó su contraseña?</p>
-        </a>
-        <div class="button-container">
-            <button>Login</button>
-        </div>
-        <p class="footer">
-            <span>No estás registrado</span>
-            <a routerLink="/registro">Registrate ahora</a>
-        </p>
+    <input type="email" placeholder="Ingrese su correo" required>
+    <input type="password" placeholder="Ingrese su contraseña" required>
+    
+    <a routerLink="/recuperar-cuenta">
+        <p>¿Olvidó su contraseña?</p>
+    </a>
+    <div class="button-container">
+        <button>Login</button>
     </div>
-</main>
+    <p class="footer">
+        <span>No estás registrado</span>
+        <a routerLink="/registro">Registrate ahora</a>
+    </p>
+</app-background>

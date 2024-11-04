@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { BackgroundComponent } from "../background/background.component";
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, BackgroundComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
