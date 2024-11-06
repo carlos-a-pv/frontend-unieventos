@@ -6,14 +6,9 @@ import { AbstractControlOptions, FormBuilder, FormControl, FormGroup, ReactiveFo
 @Component({
   selector: 'app-registro',
   standalone: true,
-  imports: [BackgroundComponent],
+  imports: [BackgroundComponent, ReactiveFormsModule],
   templateUrl: './registro.component.html',
   styleUrl: './registro.component.css'
- selector: 'app-registro',
- standalone: true,
- imports: [ReactiveFormsModule],
- templateUrl: './registro.component.html',
- styleUrl: './registro.component.css'
 })
 export class RegistroComponent{
 
