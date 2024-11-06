@@ -1,4 +1,4 @@
-<form >
+<form [formGroup]="crearEventoForm" (ngSubmit)="crearEvento()" novalidate="">
     <div>
         <label>Nombre: </label>
         <input type="text" />
@@ -47,5 +47,5 @@
     </div>
  
  
-    <button type="submit" >Crear evento</button>
+    <button type="submit" [disabled]="crearEventoForm.invalid">Crear evento</button>
  </form>
