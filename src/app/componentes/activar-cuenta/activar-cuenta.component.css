@@ -16,41 +16,34 @@ h2::after{
     bottom: 0;
     left: 0;
 }
-input {
-    background-color: inherit;
+
+.main-container{
     display: flex;
-    margin-bottom: 40px;
-    margin-left: 30px;
-    border: none;  
-    border-bottom: 1px solid #2E2935;
-    /* color: #5D47C9; */
+    flex-direction: column;
+    justify-self: center;
     width: 80%;
-    padding: 10px 10px 10px 20px;
-    letter-spacing: 1px;
-    font-size: 20px;
 }
 
-input:focus{
+.main-container p{ 
+    text-align: center ;
+    letter-spacing: 1.5px;
+    color: #2E2E2E;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.main-container input {
+    background-color: transparent;
+    border: none;
+    border-bottom: solid 1px black;
+    padding: 10px;
+
+}
+.main-container input:focus {
     outline: none;
 }
 
-a p {
-    text-align: right;
-    margin-right: 25px;
-    /* margin-bottom: 80px; */
-    color: #5D47C9;
-    text-decoration: none;
-}
-
-a{
-    text-decoration: none;
-}
-
-.button-container {
-    display: flex;
-}
-
-button {
+.main-container button {
     margin: 0 auto;
     padding: 10px;
     border-radius: 5px;
@@ -61,29 +54,18 @@ button {
     font-weight: bold;
     transition: background-color 0.5s ease;
     transition: transform 0.5s ease;
+    margin-top: 40px;
 }
 
-button:hover{
+.main-container button:hover{
     transform: scale(1.1);
     cursor: pointer;
     background-color: #7163b6;
 }
 
-.footer{
-    text-align: center;
-    margin-top: 10px;
-}
-
-.footer a {
+.main-container p:last-child {
     color: #5D47C9;
+    cursor: pointer;
+    margin-top: 15px;
 }
 
-p span {
-    color: white;
-    margin-right: 70px;
-    /* margin-left: 15px; */
-}
-
-a:hover{
-    transform: scale(2.1);
-}

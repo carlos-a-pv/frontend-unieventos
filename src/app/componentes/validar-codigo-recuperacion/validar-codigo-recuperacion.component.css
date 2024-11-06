@@ -17,22 +17,19 @@ h2::after{
     left: 0;
 }
 
-.container-items {
+.main-container {
     display: flex;
     flex-direction: column;
-    margin-left: 20px;
+    justify-self: center;
+    width: 80%;
 }
 
-input{
-    display: flex;
-    width: 80%;
+input {
     background-color: transparent;
-    /* color: white; */
-    margin: 5px 0;
     border: none;
-    border-bottom: 1px solid #2E2935;
-    font-size: 18px;
+    border-bottom: solid 1px black;
     padding: 10px;
+    margin-top: 20px;
 }
 
 input:focus{
@@ -48,8 +45,8 @@ button {
     font-weight: bold;
     border: none;
     border-radius: 3px;
-    padding: 12px;
-    margin-top: 10px;
+    padding: 10px;
+    margin-top: 40px;
     transition: background-color 0.5s ease;
     transition: transform 0.5s ease;
 }
@@ -58,4 +55,14 @@ button:hover{
     transform: scale(1.1);
     cursor: pointer;
     background-color: #7163b6;
+}
+
+p {
+    color: #5D47C9;
+    text-align: center;
+    margin-top: 10px;
+}
+
+p:hover{
+    cursor: pointer;
 }

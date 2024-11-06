@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
+import { BackgroundComponent } from '../background/background.component';
 import { AbstractControlOptions, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 
 @Component({
- selector: 'app-registro',
- standalone: true,
- imports: [ReactiveFormsModule],
- templateUrl: './registro.component.html',
- styleUrl: './registro.component.css'
+  selector: 'app-registro',
+  standalone: true,
+  imports: [BackgroundComponent, ReactiveFormsModule],
+  templateUrl: './registro.component.html',
+  styleUrl: './registro.component.css'
 })
 export class RegistroComponent{
 
