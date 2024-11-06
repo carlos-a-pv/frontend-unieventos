@@ -1,4 +1,4 @@
-main {
+/* main {
     font-family: 'Roboto';
     background-image: url('/images/background-login.png');
     background-position: center;
@@ -9,10 +9,51 @@ main {
     margin: 0;
     padding: 0;
     display: flex;
+} */
+ main {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+  /* Imagen de fondo */
+
+main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/images/background-login.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2; /* Se coloca detrás del contenido */
+}
+
+  /* Filtro oscuro */
+
+  main::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Color negro semi-transparente */
+    z-index: -1; /* Se coloca sobre la imagen, pero detrás del contenido */
 }
 
 .container {
     background-color: rgba(231, 219, 219, .1);
+    backdrop-filter: blur(6px);
     margin: auto;
     height: 500px;
     width: 30%;
@@ -21,6 +62,7 @@ main {
     -webkit-box-shadow: -1px 9px 59px 16px rgba(31,29,29,0.3);
     -moz-box-shadow: -1px 9px 59px 16px rgba(31,29,29,0.3);
     box-shadow: -1px 9px 59px 16px rgba(31,29,29,0.3);
+    z-index: 1;
 }
 h1{ 
     text-align: center;
