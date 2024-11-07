@@ -1,17 +1,17 @@
 <app-background>    
-    <h2>Registro</h2>
+    <form [formGroup]="registroForm" (ngSubmit)="registrar()" novalidate="">
+        <h2>Registro</h2>
 
-    <div class="container-items">
-        <input type="text" placeholder="nombre">
-        <input type="text" placeholder="cedula">
-        <input type="text" placeholder="direccion">
-        <input type="text" placeholder="telefono">
-        <input type="text" placeholder="correo">
-        <input type="text" placeholder="contraseña">
-        <input type="text" placeholder="confirmar contraseña">
-    </div>
-
-    <button>Crear</button>
-
+        <div class="container-items">
+            <input type="text" placeholder="nombre" formControlName="nombre">
+            <input type="text" placeholder="cedula" formControlName="cedula">
+            <input type="text" placeholder="direccion" formControlName="direccion">
+            <input type="text" placeholder="telefono" formControlName="telefono">
+            <input type="text" placeholder="correo" formControlName="email">
+            <input type="text" placeholder="contraseña" formControlName="password">
+            <input type="text" placeholder="confirmar contraseña">
+        </div>
+        <button type="submit" [disabled]="registroForm.invalid" >Registrarse</button>
+    </form>
 </app-background>
 
