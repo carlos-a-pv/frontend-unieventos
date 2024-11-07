@@ -17,12 +17,12 @@ h2::after{
     left: 0;
 }
 input {
-    background-color: inherit;
+    background-color: transparent;
     display: flex;
     margin-bottom: 40px;
     margin-left: 30px;
     border: none;  
-    border-bottom: 1px solid #2E2935;
+    border-bottom: 1px solid #3a393b;
     /* color: #5D47C9; */
     width: 80%;
     padding: 10px 10px 10px 20px;
@@ -34,11 +34,16 @@ input:focus{
     outline: none;
 }
 
+input::placeholder{
+    color: rgb(54, 54, 54);
+}
+
 a p {
     text-align: right;
     margin-right: 25px;
     /* margin-bottom: 80px; */
     color: #5D47C9;
+    /* color: white; */
     text-decoration: none;
 }
 

@@ -31,13 +31,17 @@ input{
     width: 100%;
     background-color: transparent;
     border: none;
-    border-bottom: solid 1px black;
+    border-bottom: solid 1px rgb(51, 49, 49);
     margin-bottom: 90px;
     padding: 10px;
 }
 
 input:focus{
     outline: none;
+}
+
+input::placeholder{
+    color: rgba(54, 54, 54);
 }
 
 button {

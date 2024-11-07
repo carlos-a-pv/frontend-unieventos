@@ -67,7 +67,7 @@ nav {
     border-radius: 5px;
     padding: 2px 16px;
 }
-.container-items ul li button a {
+.container-items ul li a button {
     color: white;
     text-decoration: none;
 }

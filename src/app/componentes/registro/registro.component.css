@@ -30,13 +30,18 @@ input{
     /* color: white; */
     margin: 5px 0;
     border: none;
-    border-bottom: 1px solid #2E2935;
+    border-bottom: 1px solid #222124;
     font-size: 18px;
     padding: 10px;
 }
 
 input:focus{
     outline: none;
+}
+
+input::placeholder{
+    /* color: rgb(39, 37, 37); */
+    color: white;
 }
 
 button {

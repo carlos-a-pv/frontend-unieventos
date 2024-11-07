@@ -35,12 +35,16 @@ h2::after{
 .main-container input {
     background-color: transparent;
     border: none;
-    border-bottom: solid 1px black;
+    border-bottom: solid 1px rgb(48, 46, 46);
     padding: 10px;
 
 }
 .main-container input:focus {
     outline: none;
+}
+
+.main-container input::placeholder{
+    color: rgb(54, 54, 54)
 }
 
 .main-container button {
