@@ -1,0 +1,9 @@
+footer {
+    display: flex;
+    /* justify-content: space-between; */
+    
+}
+
+.container-social-network {
+    justify-content: flex-end;
+}
