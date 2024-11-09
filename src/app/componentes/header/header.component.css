@@ -73,7 +73,7 @@ nav {
 .container-items ul li:hover{
     text-decoration: underline;
     cursor: pointer;
-    color: #8362FA;
+    color: #5D47C9;
     scale: 1.1;
 }
 /* .container-items ul li img:hover{
