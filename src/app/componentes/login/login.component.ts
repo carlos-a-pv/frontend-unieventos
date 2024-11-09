@@ -2,6 +2,11 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { BackgroundComponent } from "../background/background.component";
+import { AuthService } from '../../servicios/auth.service';
+import { ToeknService } from '../../servicios/token.service';
+import { LoginDTO } from '../../dto/login-dto';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-login',
@@ -14,7 +19,7 @@ export class LoginComponent {
   title = 'UniEventos';
   loginForm!: FormGroup;
 
-  constructor(private formBuider: FormBuilder){
+  constructor(private formBuider: FormBuilder, private authService: AuthService, private tokenService: ToeknService){
     this.crearFormularioLogin();
   }
   private crearFormularioLogin(){
@@ -24,7 +29,23 @@ export class LoginComponent {
      })
   }
   public ingresar(){
-    console.log(this.loginForm.value)
+    // console.log(this.loginForm.value)
+    const loginDTO = this.loginForm.value as LoginDTO;
+
+
+    this.authService.iniciarSesion(loginDTO).subscribe({
+      next: (data) => {
+        this.tokenService.login(data.respuesta.token);
+      },
+      error: (error) => {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: error.error.respuesta
+        });
+      },
+    });
+   
   }
 
 }
