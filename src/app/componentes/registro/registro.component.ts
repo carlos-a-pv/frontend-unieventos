@@ -42,9 +42,9 @@ passwordsMatchValidator(formGroup: FormGroup) {
   return password == confirmaPassword ? null : { passwordsMismatch: true };
  }
  
- public registrar() {
-  console.log(this.registroForm.value);
-}
+  public registrar() {
+    console.log(this.registroForm.value);
+  }
 
 
 }
