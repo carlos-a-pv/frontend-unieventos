@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CrearCuentaDTO } from '../dto/crear-cuenta-dto';
-import { MensajeDTO } from '../dto/mensaje-dto';
-import { LoginDTO } from '../dto/login-dto';
+import { CrearCuentaDTO } from '../dto/cuenta/crear-cuenta-dto';
+import { MensajeDTO } from '../dto/jws/mensaje-dto';
+import { LoginDTO } from '../dto/cuenta/login-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   public crearCuenta(cuentaDTO: CrearCuentaDTO): Observable<MensajeDTO>{
+    console.log(cuentaDTO);
     return this.http.post<MensajeDTO>(`${this.authURL}/crear-cuenta`, cuentaDTO);
   }
 

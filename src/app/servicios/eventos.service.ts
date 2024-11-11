@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { EventoDTO } from '../dto/evento-dto';
+import { InformacionEventoDTO } from '../dto/evento/informacion-evento-dto';
 
 
 @Injectable({
@@ -8,7 +8,7 @@ import { EventoDTO } from '../dto/evento-dto';
 export class EventosService {
 
 
- eventos:EventoDTO [];
+ eventos:InformacionEventoDTO [];
 
 
  constructor() {
@@ -22,12 +22,12 @@ export class EventosService {
  }
 
 
- public crear(crearEventoDTO:EventoDTO){
+ public crear(crearEventoDTO:InformacionEventoDTO){
    this.eventos.push(crearEventoDTO);
  }
 
 
- public obtener(id:string):EventoDTO | undefined{
+ public obtener(id:string):InformacionEventoDTO | undefined{
    return this.eventos.find(evento => evento.id == id);
  }
 
@@ -37,7 +37,7 @@ export class EventosService {
  }
 
 
- public editar(id:string, editarEventoDTO:EventoDTO){
+ public editar(id:string, editarEventoDTO:InformacionEventoDTO){
    const indice = this.eventos.findIndex(evento => evento.id == id);
    if(indice != -1){
      this.eventos[indice] = editarEventoDTO;

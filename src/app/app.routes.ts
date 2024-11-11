@@ -7,6 +7,7 @@ import { ValidarCodigoRecuperacionComponent } from './componentes/validar-codigo
 import { ActivarCuentaComponent } from './componentes/activar-cuenta/activar-cuenta.component';
 import { RegistroEventoComponent } from './componentes/registro-evento/registro-evento.component';
 import { GestionEventosComponent } from './componentes/gestion-eventos/gestion-eventos.component';
+import { DetalleEventoComponent } from './componentes/detalle-evento/detalle-evento.component';
 
 export const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -17,5 +18,7 @@ export const routes: Routes = [
     {path: 'activar-cuenta', component: ActivarCuentaComponent},
     {path: 'registro-evento', component: RegistroEventoComponent},
     { path: "gestion-eventos", component: GestionEventosComponent },
+    { path: 'detalle-evento/:id', component: DetalleEventoComponent },
+
     {path: "**", pathMatch: "full", redirectTo: ""}
 ];

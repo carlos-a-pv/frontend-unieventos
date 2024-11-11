@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { BackgroundComponent } from "../background/background.component";
 import { AuthService } from '../../servicios/auth.service';
 import { ToeknService } from '../../servicios/token.service';
-import { LoginDTO } from '../../dto/login-dto';
+import { LoginDTO } from '../../dto/cuenta/login-dto';
 import Swal from 'sweetalert2';
 
 

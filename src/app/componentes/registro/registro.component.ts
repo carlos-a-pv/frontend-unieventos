@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { BackgroundComponent } from '../background/background.component';
 import { AbstractControlOptions, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../servicios/auth.service';
-import { CrearCuentaDTO } from '../../dto/crear-cuenta-dto';
+import { CrearCuentaDTO } from '../../dto/cuenta/crear-cuenta-dto';
 import Swal from 'sweetalert2';
 
 
@@ -27,7 +27,7 @@ export class RegistroComponent{
   this.registroForm = this.formBuilder.group({
     cedula: ['', [Validators.required]],
     nombre: ['', [Validators.required]],
-    email: ['', [Validators.required, Validators.email]],
+    correo: ['', [Validators.required, Validators.email]],
     direccion: ['', [Validators.required]],
     telefono: ['', [Validators.required, Validators.maxLength(10)]],
     password: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(7)]],
