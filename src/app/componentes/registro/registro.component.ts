@@ -46,7 +46,7 @@ passwordsMatchValidator(formGroup: FormGroup) {
  }
  
   public registrar() {
-    // console.log(this.registroForm.value);
+    console.log(this.registroForm.value);
     const crearCuenta = this.registroForm.value as CrearCuentaDTO;
     this.authService.crearCuenta(crearCuenta).subscribe({
       next: (data) => {

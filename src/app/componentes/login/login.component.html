@@ -1,15 +1,26 @@
 <app-background>
     <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="ingresar()" novalidate>
+        <input type="email" placeholder="Ingrese su correo" required formControlName="email">
 
-    <input type="email" placeholder="Ingrese su correo" required>
-    <input type="password" placeholder="Ingrese su contraseña" required>
+        <div class="error" *ngIf="loginForm.get('email')!.invalid && (loginForm.get('email')!.touched || loginForm.get('email')?.dirty)">
+            <small *ngIf="loginForm.get('email')!.errors?.['required']">El correo es obligatorio.</small>
+            <small *ngIf="loginForm.get('email')!.errors?.['email']">El correo no tiene un formato válido.</small>
+        </div>
     
-    <a routerLink="/recuperar-cuenta">
-        <p>¿Olvidó su contraseña?</p>
-    </a>
-    <div class="button-container">
-        <button>Login</button>
-    </div>
+        <input type="password" placeholder="Ingrese su contraseña" required formControlName="password">
+        <div class="error" *ngIf="loginForm.get('password')!.invalid && (loginForm.get('password')!.touched || loginForm.get('password')!.dirty)">
+            <small *ngIf="loginForm.get('password')!.errors?.['required']">La contraseña es obligatoria.</small>
+        </div>
+        <a routerLink="/recuperar-cuenta">
+            <p>¿Olvidó su contraseña?</p>
+        </a>
+
+        <div class="button-container">
+            <button type="submit" [disabled]="loginForm.invalid">Login</button>
+        </div>
+    </form>
+    
     <p class="footer">
         <span>No estás registrado</span>
         <a routerLink="/registro">Registrate ahora</a>

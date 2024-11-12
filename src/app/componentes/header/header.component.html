@@ -4,29 +4,37 @@
             <img src="/images/ticket.svg" alt="">
             <h2>Uni<span>eventos</span></h2>
         </div>
+
+        @if (!isLogged) {
+            <div class="container-items">
+                <ul>
+                    <li>
+                        <a routerLink="/login">
+                            <button>
+                                Ingresar
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/registro">
+                            <button>
+                                Registrarse
+                            </button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        }@else {
+            <div class="container-items">
+                <ul>
+                    <li>Eventos</li>
+                    <li>Cupones</li>
+                    <li>Historial</li>
+                    <li>Perfil</li>
+                </ul>
+            </div>
+        }
         
-        <div class="container-items">
-            <ul>
-                <li>Eventos</li>
-                <li>Cupones</li>
-                <li>Historial</li>
-                <li>Perfil</li>
-                <li>
-                    <a routerLink="/login">
-                        <button>
-                            Ingresar
-                        </button>
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="/registro">
-                        <button>
-                            Registrarse
-                        </button>
-                    </a>
-                </li>
-            </ul>
-        </div>
     </nav>
 
 </header>
