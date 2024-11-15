@@ -4,11 +4,12 @@ import { HeaderComponent } from "../header/header.component";
 import { PostHeaderComponent } from "../post-header/post-header.component";
 import { FooterComponent } from "../footer/footer.component";
 import { EventoComponent } from "../evento/evento.component";
+import { BannerComponent } from "../banner/banner.component";
 
 @Component({
   selector: 'app-home-cliente',
   standalone: true,
-  imports: [RouterOutlet, RouterModule, HeaderComponent, PostHeaderComponent, FooterComponent],
+  imports: [RouterModule, HeaderComponent,FooterComponent, BannerComponent],
   templateUrl: './home-cliente.component.html',
   styleUrl: './home-cliente.component.css'
 })
