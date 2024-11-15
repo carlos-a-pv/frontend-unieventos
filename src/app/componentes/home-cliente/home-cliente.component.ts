@@ -6,12 +6,12 @@ import { FooterComponent } from "../footer/footer.component";
 import { EventoComponent } from "../evento/evento.component";
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-home-cliente',
   standalone: true,
-  imports: [RouterOutlet, RouterModule, HeaderComponent, PostHeaderComponent, FooterComponent, EventoComponent],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  imports: [RouterOutlet, RouterModule, HeaderComponent, PostHeaderComponent, FooterComponent],
+  templateUrl: './home-cliente.component.html',
+  styleUrl: './home-cliente.component.css'
 })
-export class HomeComponent {
+export class HomeComponentCliente {
 
 }

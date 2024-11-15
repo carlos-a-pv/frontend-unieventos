@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './componentes/home/home.component';
+import { HomeComponentCliente } from './componentes/home-cliente/home-cliente.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { RecuperarCuentaComponent } from './componentes/recuperar-cuenta/recuperar-cuenta.component';
@@ -10,7 +10,7 @@ import { GestionEventosComponent } from './componentes/gestion-eventos/gestion-e
 import { DetalleEventoComponent } from './componentes/detalle-evento/detalle-evento.component';
 
 export const routes: Routes = [
-    {path: '', component: HomeComponent},
+    {path: '', component: HomeComponentCliente},
     {path: 'login', component: LoginComponent},
     {path: 'registro', component: RegistroComponent},
     {path: 'recuperar-cuenta', component: RecuperarCuentaComponent},
