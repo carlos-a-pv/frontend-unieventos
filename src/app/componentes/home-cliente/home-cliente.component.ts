@@ -5,6 +5,7 @@ import { PostHeaderComponent } from "../post-header/post-header.component";
 import { FooterComponent } from "../footer/footer.component";
 import { EventoComponent } from "../evento/evento.component";
 import { BannerComponent } from "../banner/banner.component";
+import { ItemEventoDTO } from '../../dto/evento/item-evento-dto';
 
 @Component({
   selector: 'app-home-cliente',
@@ -14,5 +15,7 @@ import { BannerComponent } from "../banner/banner.component";
   styleUrl: './home-cliente.component.css'
 })
 export class HomeComponentCliente {
+  eventos:ItemEventoDTO | null [];
+
 
 }
