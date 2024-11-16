@@ -1,6 +1,17 @@
 <app-header></app-header>
 <app-post-header></app-post-header>
+<app-search></app-search>
 <main>
 
+
+    @for (evento of eventos; track $index) {
+        <app-evento
+            [titulo]="evento.nombre"
+            [ciudad]="evento.ciudad"
+            [direccion]="evento.direccion"
+            [fecha]="evento.fecha"
+            [urlImagenPoster]="evento.urlImagenPoster">>
+        </app-evento>
+    }
 </main>
 <app-footer></app-footer>

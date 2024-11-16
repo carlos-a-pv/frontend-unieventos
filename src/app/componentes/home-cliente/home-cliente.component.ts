@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-home-cliente',
   standalone: true,
-  imports: [RouterModule, HeaderComponent,FooterComponent, BannerComponent],
+  imports: [RouterModule, HeaderComponent, FooterComponent, BannerComponent, PostHeaderComponent],
   templateUrl: './home-cliente.component.html',
   styleUrl: './home-cliente.component.css'
 })
@@ -21,7 +21,6 @@ export class HomeComponentCliente {
   eventos!:ItemEventoDTO [];
 
   constructor(private cuentaServicio:PublicoService){
-
     cuentaServicio.listarEventos().subscribe({
       next: (data) => {
         this.eventos = data.respuesta;

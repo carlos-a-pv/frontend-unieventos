@@ -1,3 +1,6 @@
+.main-container {
+    background-color: #E6E6E6;
+}
 .container-info{
     display: flex;
     flex-direction: column;
@@ -24,23 +27,4 @@
 
 .container-info input {
     margin: 40px 25px 40px 0px;
-}
-
-.container-form {
-    display: inline-block;
-}
-
-.container-form input {
-    padding: 2px 16px;
-    border-radius: 5px;
-    border: 1px solid #D1D1D1;
-    color: #838383;
-}
-
-.container-form button{
-    background-color: #5D47C9;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 2px 16px;
 }

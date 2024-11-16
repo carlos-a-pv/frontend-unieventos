@@ -83,4 +83,6 @@ nav {
 
 hr {
     color: #B6B1B1;
+   border: solid 1px #B6B1B1;
+    /* color: red */
 }

@@ -1,0 +1,23 @@
+.container-form {
+    background-color: #E6E6E6;
+    display: inline-block;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.container-form input {
+    padding: 2px 16px;
+    border-radius: 5px;
+    border: 1px solid #D1D1D1;
+    color: #838383;
+}
+
+.container-form button{
+    background-color: #5D47C9;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 2px 16px;
+    margin-left: 10px;
+}

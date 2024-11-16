@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-evento',
@@ -9,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class EventoComponent {
 
+  @Input() titulo:String = "texto de prueba";
+  @Input() ciudad:String = "";
+  @Input() direccion:String = "";
+  @Input() fecha!:Date;
+  @Input() urlImagenPoster!:String;
+
+  constructor(){
+    
+  }
 }
