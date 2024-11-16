@@ -64,3 +64,9 @@ button:hover{
     cursor: pointer;
     background-color: #7163b6;
 }
+.error p {
+    color: red;
+    font-size: 0.9em;
+    margin: 0;
+  }
+  

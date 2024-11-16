@@ -1,17 +1,60 @@
-<app-background>    
-    <form [formGroup]="registroForm" (ngSubmit)="registrar()" novalidate="">
-        <h2>Registro</h2>
-
-        <div class="container-items">
-            <input type="text" placeholder="nombre" formControlName="nombre">
-            <input type="text" placeholder="cedula" formControlName="cedula">
-            <input type="text" placeholder="direccion" formControlName="direccion">
-            <input type="text" placeholder="telefono" formControlName="telefono">
-            <input type="text" placeholder="correo" formControlName="correo">
-            <input type="text" placeholder="contraseña" formControlName="password">
-            <input type="text" placeholder="confirmar contraseña" formControlName="confirmaPassword">
+<app-background>
+    <form [formGroup]="registroForm" (ngSubmit)="registrar()" novalidate>
+      <h2>Registro</h2>
+  
+      <div class="container-items">
+        <!-- Campo Nombre -->
+        <input type="text" placeholder="Nombre" formControlName="nombre">
+        <div *ngIf="registroForm.get('nombre')?.invalid && registroForm.get('nombre')?.touched" class="error">
+          <p *ngIf="registroForm.get('nombre')?.hasError('required')">El nombre es obligatorio.</p>
         </div>
-        <button type="submit" [disabled]="registroForm.invalid" >Registrarse</button>
+  
+        <!-- Campo Cédula -->
+        <input type="text" placeholder="Cédula" formControlName="cedula">
+        <div *ngIf="registroForm.get('cedula')?.invalid && registroForm.get('cedula')?.touched" class="error">
+          <p *ngIf="registroForm.get('cedula')?.hasError('required')">La cédula es obligatoria.</p>
+        </div>
+  
+        <!-- Campo Dirección -->
+        <input type="text" placeholder="Dirección" formControlName="direccion">
+        <div *ngIf="registroForm.get('direccion')?.invalid && registroForm.get('direccion')?.touched" class="error">
+          <p *ngIf="registroForm.get('direccion')?.hasError('required')">La dirección es obligatoria.</p>
+        </div>
+  
+        <!-- Campo Teléfono -->
+        <input type="text" placeholder="Teléfono" formControlName="telefono">
+        <div *ngIf="registroForm.get('telefono')?.invalid && registroForm.get('telefono')?.touched" class="error">
+          <p *ngIf="registroForm.get('telefono')?.hasError('required')">El teléfono es obligatorio.</p>
+          <p *ngIf="registroForm.get('telefono')?.hasError('maxlength')">El teléfono no debe exceder 10 dígitos.</p>
+        </div>
+  
+        <!-- Campo Correo -->
+        <input type="text" placeholder="Correo" formControlName="correo">
+        <div *ngIf="registroForm.get('correo')?.invalid && registroForm.get('correo')?.touched" class="error">
+          <p *ngIf="registroForm.get('correo')?.hasError('required')">El correo es obligatorio.</p>
+          <p *ngIf="registroForm.get('correo')?.hasError('email')">Debe ser un correo válido.</p>
+        </div>
+  
+        <!-- Campo Contraseña -->
+        <input type="password" placeholder="Contraseña" formControlName="password">
+        <div *ngIf="registroForm.get('password')?.invalid && registroForm.get('password')?.touched" class="error">
+          <p *ngIf="registroForm.get('password')?.hasError('required')">La contraseña es obligatoria.</p>
+          <p *ngIf="registroForm.get('password')?.hasError('minlength')">La contraseña debe tener al menos 7 caracteres.</p>
+          <p *ngIf="registroForm.get('password')?.hasError('maxlength')">La contraseña no debe exceder 10 caracteres.</p>
+        </div>
+  
+        <!-- Campo Confirmar Contraseña -->
+        <input type="password" placeholder="Confirmar Contraseña" formControlName="confirmaPassword">
+        <div *ngIf="registroForm.get('confirmaPassword')?.invalid && registroForm.get('confirmaPassword')?.touched" class="error">
+          <p *ngIf="registroForm.get('confirmaPassword')?.hasError('required')">Debe confirmar la contraseña.</p>
+        </div>
+        <div *ngIf="registroForm.hasError('passwordsMismatch') && registroForm.touched" class="error">
+          <p>Las contraseñas no coinciden.</p>
+        </div>
+      </div>
+  
+      <button type="submit" [disabled]="registroForm.invalid">Registrarse</button>
     </form>
-</app-background>
+  </app-background>
+  
 
