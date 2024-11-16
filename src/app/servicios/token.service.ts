@@ -27,7 +27,7 @@ export class ToeknService {
   public login(token:string){
     this.setToken(token);
     const rol = this.getRol();
-    let destino = (rol == "ADMINISTRADOR") ? "/home-admin" : "/home-cliente";
+    let destino = (rol == "ADMINISTRADOR") ? "/gestion-eventos" : "/home-cliente";
     this.router.navigate([destino]).then(()=>{
       window.location.reload();
     });

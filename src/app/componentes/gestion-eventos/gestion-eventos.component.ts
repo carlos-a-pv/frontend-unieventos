@@ -2,11 +2,14 @@ import { Component } from '@angular/core';
 import { InformacionEventoDTO } from '../../dto/evento/informacion-evento-dto';
 import { EventosService } from '../../servicios/eventos.service';
 import Swal from 'sweetalert2';
+import { HeaderAdminComponent } from "../header-admin/header-admin.component";
+import { PostHeaderComponent } from "../post-header/post-header.component";
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-gestion-eventos',
   standalone: true,
-  imports: [],
+  imports: [HeaderAdminComponent, PostHeaderComponent, FooterComponent],
   templateUrl: './gestion-eventos.component.html',
   styleUrl: './gestion-eventos.component.css'
 })
