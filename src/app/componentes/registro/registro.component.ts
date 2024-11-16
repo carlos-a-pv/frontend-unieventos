@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
 import { BackgroundComponent } from '../background/background.component';
-import { AbstractControlOptions, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControlOptions, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import { AuthService } from '../../servicios/auth.service';
 import { CrearCuentaDTO } from '../../dto/cuenta/crear-cuenta-dto';
+import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
 
 
 @Component({
   selector: 'app-registro',
   standalone: true,
-  imports: [BackgroundComponent, ReactiveFormsModule],
+  imports: [BackgroundComponent, ReactiveFormsModule, CommonModule],
   templateUrl: './registro.component.html',
   styleUrl: './registro.component.css'
 })

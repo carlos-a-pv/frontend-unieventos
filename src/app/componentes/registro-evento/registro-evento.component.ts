@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { HeaderAdminComponent } from "../header-admin/header-admin.component";
+import { PostHeaderComponent } from "../post-header/post-header.component";
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-registro-evento',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, HeaderAdminComponent, PostHeaderComponent, FooterComponent],
   templateUrl: './registro-evento.component.html',
   styleUrl: './registro-evento.component.css'
 })
