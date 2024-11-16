@@ -35,7 +35,5 @@ export class HomeComponentCliente {
         });
       },
     })
-
-    
   }
 }
