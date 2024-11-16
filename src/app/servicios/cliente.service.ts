@@ -7,4 +7,11 @@ import { MensajeDTO } from '../dto/jws/mensaje-dto';
   providedIn: 'root'
 })
 export class ClienteService {
+  private publicoURL = "http://localhost:8080/api/cliente/cupon"
+
+  constructor(private http: HttpClient) { }
+
+  public listarCupones(): Observable<MensajeDTO> {
+    return this.http.get<MensajeDTO>(`${this.publicoURL}/obtener-cupones`);
+  }
 }

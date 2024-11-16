@@ -55,8 +55,11 @@ nav {
     /* justify-content: space-between; */
     margin: 0 15px;
     list-style: none;
-    color: #2E2935;
     font-weight: 400;
+}
+.container-items ul li a {
+    color: #2E2935;
+    text-decoration: none;
 }
 
 .container-items ul li button{
@@ -71,8 +74,9 @@ nav {
     text-decoration: none;
 }
 
-.container-items ul li:hover{
+.container-items ul li a:hover{
     text-decoration: underline;
+    text-underline-offset: 4px; 
     cursor: pointer;
     color: #5D47C9;
     scale: 1.1;
@@ -85,4 +89,10 @@ hr {
     color: #B6B1B1;
    border: solid 1px #B6B1B1;
     /* color: red */
+}
+
+.active {
+    color: #5D47C9 !important;
+    font-weight: bold;
+    border-bottom: 2px solid black;
 }

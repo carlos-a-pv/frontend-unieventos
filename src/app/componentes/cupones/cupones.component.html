@@ -1,1 +1,11 @@
-<p>cupones works!</p>
+<app-header></app-header>
+<app-post-header></app-post-header>
+<main>
+    <h2>Cupones</h2>
+    @for (itemCupon of cupones; track $index) {
+        <app-cupon
+        [nombre]="itemCupon.nombre"
+        [descuento]="itemCupon.descuento">
+        </app-cupon>
+    }
+</main>

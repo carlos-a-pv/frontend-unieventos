@@ -9,6 +9,7 @@ import { RegistroEventoComponent } from './componentes/registro-evento/registro-
 import { GestionEventosComponent } from './componentes/gestion-eventos/gestion-eventos.component';
 import { DetalleEventoComponent } from './componentes/detalle-evento/detalle-evento.component';
 import { EventosComponent } from './componentes/eventos/eventos.component';
+import { CuponesComponent } from './componentes/cupones/cupones.component';
 
 export const routes: Routes = [
     {path: '', component: HomeComponentCliente},
@@ -21,5 +22,6 @@ export const routes: Routes = [
     {path: "gestion-eventos", component: GestionEventosComponent },
     {path: 'detalle-evento/:id', component: DetalleEventoComponent },
     {path: 'eventos', component: EventosComponent},
+    {path: 'cupones', component: CuponesComponent},
     {path: "**", pathMatch: "full", redirectTo: ""}
 ];
