@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EventosService } from '../../servicios/eventos.service';
 import { CommonModule } from '@angular/common';
 import { InformacionEventoDTO } from '../../dto/evento/informacion-evento-dto';
+import { AdministradorService } from '../../servicios/administrador.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -16,24 +17,29 @@ export class DetalleEventoComponent {
 
 
  codigoEvento: string = '';
- evento: InformacionEventoDTO | undefined;
+ evento!: InformacionEventoDTO;
 
 
- constructor(private route: ActivatedRoute, private eventosService: EventosService) {
+ constructor(private route: ActivatedRoute, private administradorServicio: AdministradorService) {
    this.route.params.subscribe((params) => {
      this.codigoEvento = params['id'];
      this.obtenerEvento();
    });
  }
 
-
  public obtenerEvento() {
-   const eventoConsultado = this.eventosService.obtener(this.codigoEvento);
-   if (eventoConsultado != undefined) {
-     this.evento = eventoConsultado;
-   }
- }
-
-
+    this.administradorServicio.obtenerEvento(this.codigoEvento).subscribe({
+      next: (data) => {
+        this.evento = data.respuesta;
+      },
+      error: (error) => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'No se pudo obtener el evento'
+        });
+      }
+    });
+    }
 }
 
