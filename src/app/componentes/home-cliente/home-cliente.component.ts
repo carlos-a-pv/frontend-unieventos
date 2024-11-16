@@ -38,8 +38,4 @@ export class HomeComponentCliente {
 
     
   }
-
-  public mostrarEventos(){
-    console.log(this.eventos);
-  }
 }
