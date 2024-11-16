@@ -20,8 +20,13 @@ import Swal from 'sweetalert2';
 export class HomeComponentCliente {
   eventos!:ItemEventoDTO [];
 
-  constructor(private cuentaServicio:PublicoService){
-    cuentaServicio.listarEventos().subscribe({
+  constructor(private publicService:PublicoService){
+    this.eventos = [];
+    this.obtenerEventos();
+  }
+
+  public obtenerEventos(){
+    this.publicService.listarEventos().subscribe({
       next: (data) => {
         this.eventos = data.respuesta;
         console.log(data.respuesta)

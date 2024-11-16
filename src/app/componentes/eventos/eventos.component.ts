@@ -20,10 +20,14 @@ export class EventosComponent {
   eventos!:ItemEventoDTO [];
 
   constructor(private publicService:PublicoService){
-    publicService.listarEventos().subscribe({
+    this.eventos = [];
+    this.obtenerEventos();
+  }
+
+  public obtenerEventos(){
+    this.publicService.listarEventos().subscribe({
       next: (data) => {
         this.eventos = data.respuesta;
-        // console.log(data.respuesta)
       },
       error: (error) => {
         Swal.fire({
