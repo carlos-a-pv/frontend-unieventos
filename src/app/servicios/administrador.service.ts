@@ -43,10 +43,4 @@ export class AdministradorService {
    return this.http.get<MensajeDTO>(`${this.adminURL}/listar-eventos`);
  }
 
-
- public subirImagen(imagen: FormData): Observable<MensajeDTO> {
-   return this.http.post<MensajeDTO>(`${this.adminURL}/imagen/subir`, imagen);
- }
-
-
 }

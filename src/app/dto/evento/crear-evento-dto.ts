@@ -4,7 +4,7 @@ export interface CrearEventoDTO {
     nombre:string,
     descripcion:string,
     fecha:Date,
-    tipo:string,
+    tipoEvento:string,
     direccion:string,
     ciudad:string,
     localidades:LocalidadDTO[],
