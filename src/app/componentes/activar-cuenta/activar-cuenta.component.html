@@ -8,10 +8,16 @@
             <p>
                 Revise el email registrado, y digite el código que recibió
             </p>
-            <input type="text" placeholder="Ingrese el código" required formControlName="codigoActivación">
+            <input type="text" placeholder="Ingrese el código" formControlName="codigoActivacion">
 
-            <div class="error" *ngIf="activarCuentaForm.get('codigoActivación')?.invalid && (activarCuentaForm.get('codigoActivación')?.touched || activarCuentaForm.get('codigoActivación')?.dirty)">
-                <small *ngIf="activarCuentaForm.get('codigoActivación')?.errors?.['codigoActivación']">Código inválido</small>
+            <div class="error" *ngIf="activarCuentaForm.get('codigoActivacion')!.invalid && (activarCuentaForm.get('codigoActivacion')!.touched || activarCuentaForm.get('codigoActivacion')!.dirty)">
+
+                <small *ngIf="activarCuentaForm.get('codigoActivacion')!.errors?.['required']">El código es obligatorio</small>
+                
+                <small *ngIf="activarCuentaForm.get('codigoActivacion')!.errors?.['maxlength']">Código inválido</small>
+
+                <small *ngIf="activarCuentaForm.get('codigoActivacion')!.errors?.['minlength']">Código inválido</small>
+
             </div>
             
 

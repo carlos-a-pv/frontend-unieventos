@@ -2,21 +2,30 @@
     <h2>
         Recuperar cuenta
     </h2>
-    
-    <div class="main-container">
-        <input type="email" name="email" id="email" placeholder="Ingrese su correo">
-        <button>Enviar código</button>
-        
-        <div class="container-items">
-            <p>
-                ¿No tiene una cuenta registrada?
-               
-            </p>
-            <p>
-                <a href="/registro">
-                    <span>Registrate ahora</span>
-                </a>
-            </p>
+    <form [formGroup]="recuperarCuentaForm" (ngSubmit)="enviarCodigo()">
+        <div class="main-container">
+            <input type="email" name="email" id="email" placeholder="Ingrese su correo" formControlName="email">
+
+            <div class="error" *ngIf="recuperarCuentaForm.get('email')!.invalid && (recuperarCuentaForm.get('email')!.touched || recuperarCuentaForm.get('email')?.dirty)">
+
+
+                <small *ngIf="recuperarCuentaForm.get('email')!.errors?.['required']">El correo es obligatorio.</small>
+                
+                <small *ngIf="recuperarCuentaForm.get('email')!.errors?.['email']">El correo no tiene un formato válido.</small>
+            </div>
+
+            <button type="submit" [disabled]="recuperarCuentaForm.invalid">Enviar código</button>
+            
+            <div class="container-items">
+                <p>
+                    ¿No tiene una cuenta registrada?
+                </p>
+                <p>
+                    <a href="/registro">
+                        <span>Registrate ahora</span>
+                    </a>
+                </p>
+            </div>
         </div>
-    </div>
+    </form>
 </app-background>

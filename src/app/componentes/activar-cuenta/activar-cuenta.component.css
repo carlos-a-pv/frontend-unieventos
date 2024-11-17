@@ -27,7 +27,7 @@ h2::after{
 .main-container p{ 
     text-align: center ;
     letter-spacing: 1.5px;
-    color: #2E2E2E;
+    color: #1d1d1d;
     font-weight: bold;
     font-size: 14px;
 }
@@ -71,6 +71,15 @@ h2::after{
     color: #5D47C9;
     cursor: pointer;
     margin-top: 15px;
+}
+
+input.ng-invalid.ng-touched {
+    border-color: red;
+    outline-color: red;
+}
+
+input.ng-valid.ng-touched {
+    border-color: #5D47C9;
 }
 
 small {

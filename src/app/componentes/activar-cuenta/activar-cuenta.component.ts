@@ -27,7 +27,7 @@ export class ActivarCuentaComponent {
   private crearFormularioActivarCuenta (){
     this.activarCuentaForm = this.formBuider.group({
       id: this.tokenService.getIdCuenta(),
-      codigoActivación: ['', [Validators.required, Validators.maxLength(6)]]
+      codigoActivacion: ['', [Validators.required, Validators.maxLength(6), Validators.minLength(6)]]
     });
   }
   public validarCodigoCuenta(){

@@ -27,5 +27,11 @@ export class AuthService {
   public validarCuenta(validarCuentaDTO: ValidarCuentaDTO): Observable<MensajeDTO>{
     return this.http.put<MensajeDTO>(`${this.authURL}/validar-correo`, validarCuentaDTO)
   }
+
+  public enviarCodigoRecuperacion(email:String): Observable<MensajeDTO>{
+    return this.http.put<MensajeDTO>(`${this.authURL}/codigo-recuperacion`, email,{
+      headers: {'content-type': 'application/json'}
+    });
+  }
    
 }
