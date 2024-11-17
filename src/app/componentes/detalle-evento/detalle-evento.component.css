@@ -1,0 +1,48 @@
+.detalle-evento {
+    max-width: 800px;
+    margin: auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  .encabezado {
+    text-align: center;
+  }
+  
+  .imagen-portada {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .tipo {
+    font-size: 1.2rem;
+    color: gray;
+  }
+  
+  .informacion-basica p {
+    margin: 5px 0;
+  }
+  
+  .localidades ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .localidades li {
+    margin: 10px 0;
+  }
+  
+  .btn-regresar {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-regresar:hover {
+    background-color: #0056b3;
+  }
+  

@@ -87,13 +87,29 @@ export class GestionEventosComponent {
     });
    }
    public eliminarEventos() {
-    this.seleccionados.forEach(e1 => {
-      this.administradorService.eliminarEvento(e1.id);
-      this.eventos = this.eventos.filter(e2 => e2.id !== e1.id);
+    const eliminaciones = this.seleccionados.map((evento) =>
+      this.administradorService.eliminarEvento(evento.id).toPromise()
+    );
+
+    Promise.allSettled(eliminaciones).then((resultados) => {
+      let exitos = 0;
+      resultados.forEach((resultado, index) => {
+        if (resultado.status === 'fulfilled') {
+          this.eventos = this.eventos.filter((e) => e.id !== this.seleccionados[index].id);
+          exitos++;
+        } else {
+          console.error(`Error eliminando el evento ${this.seleccionados[index].id}`, resultado.reason);
+        }
+      });
+
+      this.seleccionados = [];
+      this.actualizarMensaje();
+
+      Swal.fire({
+        title: "Resultado",
+        text: `${exitos} evento(s) eliminado(s) exitosamente.`,
+        icon: exitos > 0 ? "success" : "error",
+      });
     });
-    this.seleccionados = [];
-    this.actualizarMensaje();
-   
-   
-   }
+  }
 }
