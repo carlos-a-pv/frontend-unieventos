@@ -1,0 +1,39 @@
+.container {
+    height: 100vh;
+    width: 400px;
+    background-color: #B7B7B7;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.container .header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container .header h2 {
+    color: #5D47C9;
+    font-weight: bold;
+}
+
+.container .header img:hover {
+    cursor: pointer;
+    
+}
+
+.container .btn-pagar{
+    color: white;
+    background-color: #5D47C9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 20px;
+    border-radius: 5px;
+    margin-bottom: 0;
+    width: 80%;
+    margin: 0 auto;
+}
+.container .btn-pagar p {
+    margin: 0;
+}

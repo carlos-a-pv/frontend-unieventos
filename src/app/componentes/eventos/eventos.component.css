@@ -2,4 +2,35 @@ main{
     display: flex;
     flex-direction: column;
     flex: 1;
+    position: relative;
+}
+
+.container-carrito {
+    background-color: #878787;
+    width: 100px;
+    display: flex;
+    /* justify-content: flex-end; */
+    /* align-items: center; */
+    position: sticky; 
+    left: 100%;
+    bottom: 20px; 
+    z-index: 1000;
+    border-radius: 100px;
+    margin-right: 20px;
+}
+
+.container-carrito img {
+    /* margin-right: 20px; */
+    padding: 10px;
+}
+
+.container-carrito:hover{
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .container-carrito {
+        bottom: 10px;
+        right: 10px;
+    }
 }

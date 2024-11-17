@@ -1,4 +1,8 @@
 <app-header></app-header>
+<app-detalle-carrito 
+    *ngIf="mostrarCarrito"
+    (cerrarModal)="ocultarCarrito()">
+</app-detalle-carrito>
 <app-post-header></app-post-header>
 <app-search></app-search>
 <main>
@@ -13,5 +17,11 @@
             [urlImagenPoster]="evento.urlImagenPoster">>
         </app-evento>
     }
+    @if (mostrarCarrito == false) {
+        <div class="container-carrito">
+            <img src="/images/carrito.svg" alt="" (click)="ocultarCarrito()">
+        </div>
+    }
+
 </main>
 <app-footer></app-footer>

@@ -15,6 +15,7 @@ export class EventoComponent {
   @Input() fecha!:Date;
   @Input() urlImagenPoster!:String;
 
+  
   constructor(){
     
   }

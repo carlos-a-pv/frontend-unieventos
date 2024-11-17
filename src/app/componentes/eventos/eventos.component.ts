@@ -7,19 +7,26 @@ import { EventoComponent } from "../evento/evento.component";
 import { ItemEventoDTO } from '../../dto/evento/item-evento-dto';
 import { PublicoService } from '../../servicios/publico.service';
 import Swal from 'sweetalert2';
+import { ToeknService } from '../../servicios/token.service';
+import { DetalleCarritoComponent } from "../detalle-carrito/detalle-carrito.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-eventos',
   standalone: true,
-  imports: [HeaderComponent, PostHeaderComponent, FooterComponent, SearchComponent, EventoComponent],
+  imports: [HeaderComponent, PostHeaderComponent, FooterComponent, SearchComponent, EventoComponent, DetalleCarritoComponent, CommonModule],
   templateUrl: './eventos.component.html',
   styleUrl: './eventos.component.css'
 })
 export class EventosComponent {
 
   eventos!:ItemEventoDTO [];
+  isLogged = false;
+  mostrarCarrito: boolean = false;
+  
 
-  constructor(private publicService:PublicoService){
+  constructor(private publicService:PublicoService, private tokenService:ToeknService){
+    this.isLogged = this.tokenService.isLogged();
     this.eventos = [];
     this.obtenerEventos();
   }
@@ -37,5 +44,9 @@ export class EventosComponent {
         });
       },
     })
+  }
+
+  ocultarCarrito():void {
+    this.mostrarCarrito = !this.mostrarCarrito;
   }
 }
