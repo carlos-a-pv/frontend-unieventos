@@ -4,6 +4,7 @@ import {Buffer} from 'buffer';
 
 const TOKEN_KEY = "AuthToken";
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -25,9 +26,14 @@ export class ToeknService {
   }
 
   public login(token:string){
-    if(token == "La cuenta se encuentra inactiva"){
+    let mensaje:string = token.split(';')[0];
+    let idCuenta:string = token.split(';')[1];
+
+    if(mensaje == "La cuenta se encuentra inactiva"){
       this.router.navigate(["/activar-cuenta"]).then(()=>{
+        window.sessionStorage.setItem("idCuenta", idCuenta);
         window.location.reload();
+
       })
     }else{
       this.setToken(token);
@@ -53,14 +59,14 @@ export class ToeknService {
     return values;
   }
 
-  public getIdCuenta():string{
+  public getIdCuenta():string | null{
     const token = this.getToken();
     if(token){
       const values = this.decodePayload(token);
       return values.id;
+    }else{
+      return window.sessionStorage.getItem("idCuenta");
     }
-
-    return "";
   }
 
   public getRol():string{
