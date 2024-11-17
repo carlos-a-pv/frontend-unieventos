@@ -1,7 +1,7 @@
 <app-header-admin></app-header-admin>
 <app-post-header></app-post-header>
 <main>
-  <form [formGroup]="crearEventoForm" (ngSubmit)="crearEvento()">
+  <form [formGroup]="crearEventoForm" >
     <!-- Nombre -->
     <div>
       <label for="nombre">Nombre:</label>
@@ -33,7 +33,7 @@
     <div>
       <label for="fecha">Fecha:</label>
       <input
-        type="date"
+        type="datetime-local"
         id="fecha"
         class="form-control"
         formControlName="fecha"
@@ -56,6 +56,22 @@
       </select>
       <small *ngIf="crearEventoForm.get('tipoEvento')?.invalid && crearEventoForm.get('tipoEvento')?.touched">
         Debe seleccionar un tipo de evento.
+      </small>
+    </div>
+    
+    <!-- Estado -->
+    <div>
+      <label for="Estado">Estado:</label>
+      <select
+        id="Estado"
+        class="form-control"
+        formControlName="estado"
+      >
+        <option value="">Seleccione un Estado</option>
+        <option *ngFor="let estado of estados" [value]="estado">{{ estado }}</option>
+      </select>
+      <small *ngIf="crearEventoForm.get('estado')?.invalid && crearEventoForm.get('estado')?.touched">
+        Debe seleccionar un estado para el evento.
       </small>
     </div>
 
@@ -92,64 +108,48 @@
       <label for="imagenPortada">Imagen Portada:</label>
       <input
         type="file"
-        id="imagenPortada"
-        class="form-control"
         (change)="onFileChange($event, 'portada')"
+        class="form-control"
       />
       <small *ngIf="crearEventoForm.get('imagenPortada')?.invalid && crearEventoForm.get('imagenPortada')?.touched">
         La imagen de portada es obligatoria.
       </small>
+      <button type="submit" class="btn btn-primary" (click)="subirImagen('portada')" ><i class="fa-solid fa-cloud-arrow-up"></i>Subir imagen</button>
     </div>
-
     <!-- Imagen Localidades -->
     <div>
       <label for="imagenLocalidades">Imagen Localidades:</label>
       <input
-        type="file"
-        id="imagenLocalidades"
-        class="form-control"
         (change)="onFileChange($event, 'localidades')"
+        type="file"
+        class="form-control" 
       />
       <small *ngIf="crearEventoForm.get('imagenLocalidades')?.invalid && crearEventoForm.get('imagenLocalidades')?.touched">
         La imagen de las localidades es obligatoria.
       </small>
+      <button type="submit" class="btn btn-primary" (click)="subirImagen('localidades')" ><i class="fa-solid fa-cloud-arrow-up"></i>Subir Imagen</button>
     </div>
 
-    <!-- Localidades -->
-    <div>
-      <label>Localidades:</label>
-      <button type="button" (click)="anadirLocalidad()">Añadir Localidad</button>
-      <div
-        *ngFor="let localidad of localidades.controls; let i = index"
-        [formGroupName]="i"
-      >
-        <div>
-          <label for="nombre">Nombre:</label>
-          <input type="text" id="nombre" formControlName="nombre" />
-          <small *ngIf="localidad.get('nombre')?.invalid && localidad.get('nombre')?.touched">
-            El nombre de la localidad es obligatorio.
-          </small>
-        </div>
-        <div>
-          <label for="precio">Precio:</label>
-          <input type="number" id="precio" formControlName="precio" />
-          <small *ngIf="localidad.get('precio')?.invalid && localidad.get('precio')?.touched">
-            El precio debe ser mayor o igual a 0.
-          </small>
-        </div>
-        <div>
-          <label for="capacidad">Capacidad:</label>
-          <input type="number" id="capacidad" formControlName="capacidad" />
-          <small *ngIf="localidad.get('capacidad')?.invalid && localidad.get('capacidad')?.touched">
-            La capacidad debe ser mayor o igual a 1.
-          </small>
-        </div>
-        <button type="button" (click)="eliminarLocalidad(i)">Eliminar Localidad</button>
+    <div formArrayName="localidades">
+      <div *ngFor="let localidad of localidades.controls; let i = index" [formGroupName]="i">
+        <label>Nombre de la localidad:</label>
+        <input type="text" class="form-control" formControlName="nombre"/>
+  
+        <label>Precio:</label>
+        <input type="number" class="form-control" formControlName="precio"/>
+  
+        <label>Capacidad:</label>
+        <input type="number" class="form-control" formControlName="capacidadMaxima"/>
+  
+        <button type="button" (click)="eliminarLocalidad(i)">Eliminar localidad</button>
       </div>
     </div>
+  
+    <button type="button" (click)="anadirLocalidad()">Añadir localidad</button>
+  
 
     <!-- Botón Crear -->
-    <button type="submit" [disabled]="crearEventoForm.invalid">Crear Evento</button>
+    <button type="submit" [disabled]="crearEventoForm.invalid" (click)="crearEvento()">Crear Evento</button>
   </form>
 </main>
 <app-footer></app-footer>

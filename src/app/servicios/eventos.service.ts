@@ -56,12 +56,12 @@ export class EventosService {
       {
         nombre:'Localidad 1',
         precio:10000,
-        capacidad:100
+        capacidadMaxima:100
       },
       {
         nombre:'Localidad 2',
         precio:20000,
-        capacidad:100
+        capacidadMaxima:100
       }
     ],
     imagenPortada:'https://picsum.photos/100?random=1',

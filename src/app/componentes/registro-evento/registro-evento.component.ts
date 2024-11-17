@@ -4,6 +4,10 @@ import { HeaderAdminComponent } from "../header-admin/header-admin.component";
 import { PostHeaderComponent } from "../post-header/post-header.component";
 import { FooterComponent } from "../footer/footer.component";
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
+import { AdministradorService } from '../../servicios/administrador.service';
+import { CrearEventoDTO } from '../../dto/evento/crear-evento-dto';
+import { ImagenesService } from '../../servicios/imagenes.service';
 
 @Component({
   selector: 'app-registro-evento',
@@ -15,11 +19,16 @@ import { CommonModule } from '@angular/common';
 export class RegistroEventoComponent {
   crearEventoForm!: FormGroup;
   tiposDeEvento: string[];
+  estados: String[];
+  imagenPortada?: File;
+  imagenLocalidades?: File;
 
 
-  constructor(private formBuilder: FormBuilder){ 
+  constructor(private formBuilder: FormBuilder, private administradorService:AdministradorService, private imagenSevice:ImagenesService){ 
     this.crearFormularioEvento();
     this.tiposDeEvento = ['DEPORTE','CONCIERTO','CULTURA','MODA','BELLEZA'];
+    this.estados=['ACTIVA','INACTIVA']
+
     
   }
 
@@ -33,31 +42,45 @@ export class RegistroEventoComponent {
       ciudad: ['', [Validators.required]],
       localidades: this.formBuilder.array([]),
       imagenPortada: ['', [Validators.required]],
-      imagenLocalidades: ['', [Validators.required]]
+      imagenLocalidades: ['', [Validators.required]],
+      estado: ['', [Validators.required]]
     });
    
   }
   public crearEvento(){
-    console.log(this.crearEventoForm.value);
-   }
+
+
+    const crearEventoDTO = this.crearEventoForm.value as CrearEventoDTO;
+    console.log(crearEventoDTO)
    
-  public onFileChange(event:any, tipo:string){
-    if (event.target.files.length > 0) {
-      const files = event.target.files;     
-   
-   
-      switch(tipo){
-        case 'localidades':
-          this.crearEventoForm.get('imagenLocalidades')?.setValue(files[0]);
-          break;
-        case 'portada':
-          this.crearEventoForm.get('imagenPortada')?.setValue(files[0]);
-          break;
+    this.administradorService.crearEvento(crearEventoDTO).subscribe({
+      next: (data) => {
+        Swal.fire({
+          title: 'Cuenta creada',
+          text: 'La cuenta se ha creado correctamente',
+          icon: 'success',
+          confirmButtonText: 'Aceptar'
+        })
+      },
+      error: (error)=>{
+        Swal.fire({
+          title: 'Error',
+          text: 'error.error.respuesta',
+          icon: 'error',
+          confirmButtonText: 'Aceptar'
+        })
       }
+    });
+  }
    
-   
+
+   public onFileChange(event: any, tipo: string) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      tipo == 'localidades' ? (this.imagenLocalidades = file) : (this.imagenPortada = file);
     }
    }
+   
      // Getter para acceder al FormArray de localidades
   get localidades(): FormArray {
     return this.crearEventoForm.get('localidades') as FormArray;
@@ -68,7 +91,7 @@ export class RegistroEventoComponent {
     const nuevaLocalidad = this.formBuilder.group({
       nombre: ['', [Validators.required]],
       precio: [0, [Validators.required, Validators.min(0)]],
-      capacidad: [1, [Validators.required, Validators.min(1)]],
+      capacidadMaxima: [1, [Validators.required, Validators.min(1)]],
     });
 
     this.localidades.push(nuevaLocalidad);
@@ -78,6 +101,30 @@ export class RegistroEventoComponent {
   eliminarLocalidad(index: number) {
     this.localidades.removeAt(index);
   }
+
+  public subirImagen(tipo:string){
+    const formData = new FormData();
+    const imagen = tipo == 'portada' ? this.imagenPortada : this.imagenLocalidades;
+    const formControl = tipo == 'portada' ? 'imagenPortada' : 'imagenLocalidades';
+   
+   
+    formData.append('imagen', imagen!);
+   
+   
+    this.imagenSevice.subirImagen(formData).subscribe({
+      next: (data) => {
+        this.crearEventoForm.get(formControl)?.setValue(data.respuesta);
+        Swal.fire("Exito!", "Se ha subido la imagen.", "success");
+      },
+      error: (error) => {
+        Swal.fire("Error!", error.error.respuesta, "error");
+      }
+    });
+   
+   
+   }
+   
 }
+
    
 
