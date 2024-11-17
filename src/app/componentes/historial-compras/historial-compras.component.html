@@ -1,1 +1,17 @@
-<p>historial-compras works!</p>
+<app-header></app-header>
+<app-post-header></app-post-header>
+<main>
+    <h2>Tus compras</h2>
+    @if (listOrdenes.length === 0) {
+        <p>No tiene compras registradas.</p>
+    }@else {
+        @for (itemOrden of listOrdenes; track $index) {
+            <app-orden
+                [nombreEvento]="itemOrden.idOrden"
+                [fecha]="itemOrden.fecha"
+                [total]="itemOrden.total"
+            ></app-orden>
+        }
+    }
+</main>
+<app-footer></app-footer>

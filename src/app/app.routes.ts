@@ -12,6 +12,7 @@ import { EventosComponent } from './componentes/eventos/eventos.component';
 import { CuponesComponent } from './componentes/cupones/cupones.component';
 import { LoginGuard } from './guards/permiso.service';
 import { RolesGuard } from './guards/roles.service';
+import { HistorialComprasComponent } from './componentes/historial-compras/historial-compras.component';
 
 export const routes: Routes = [
     {path: '', component: HomeComponentCliente},
@@ -23,11 +24,12 @@ export const routes: Routes = [
     {path: 'registro-evento', component: RegistroEventoComponent, canActivate: [RolesGuard], data: {
     expectedRole: ["ADMINISTRADOR"]}},
     {path: "gestion-eventos", component: GestionEventosComponent, canActivate: [RolesGuard], data: {
-    expectedRole: ["ADMINISTRADOR"]} },
+    expectedRole: ["ADMINISTRADOR"]}},
     {path: 'detalle-evento/:id', component: DetalleEventoComponent, canActivate: [RolesGuard], data: {
-    expectedRole: ["ADMINISTRADOR"]}  },
+    expectedRole: ["ADMINISTRADOR"]}},
     {path: 'eventos', component: EventosComponent},
-    {path: 'cupones', component: CuponesComponent},
+    {path: 'cupones', component: CuponesComponent, canActivate: [RolesGuard], data: {expectedRole: ["CLIENTE"]}},
+    {path: 'historial-compras', component: HistorialComprasComponent, canActivate: [RolesGuard], data: {expectedRole: ["CLIENTE"]}},
 
     {path: "**", pathMatch: "full", redirectTo: ""}
 ];

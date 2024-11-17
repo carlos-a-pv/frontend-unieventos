@@ -5,21 +5,26 @@ import { ClienteService } from '../../servicios/cliente.service';
 import { CuponInfoDTO } from '../../dto/cupon/cupon-info-dto';
 import Swal from 'sweetalert2';
 import { CuponComponent } from "../cupon/cupon.component";
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-cupones',
   standalone: true,
-  imports: [HeaderComponent, PostHeaderComponent, CuponComponent],
+  imports: [HeaderComponent, PostHeaderComponent, CuponComponent, FooterComponent],
   templateUrl: './cupones.component.html',
   styleUrl: './cupones.component.css'
 })
 export class CuponesComponent {
   
-  cupones!:CuponInfoDTO [];
+  cupones:CuponInfoDTO [];
 
   constructor(private clientService:ClienteService){
+    this.cupones = []
+    this.obtenerCupones();
+  }
 
-    clientService.listarCupones().subscribe({
+  public obtenerCupones(){
+    this.clientService.listarCupones().subscribe({
       next: (data) => {
         this.cupones = data.respuesta;
       },

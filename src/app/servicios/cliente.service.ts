@@ -2,16 +2,21 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MensajeDTO } from '../dto/jws/mensaje-dto';
+import { ToeknService } from './token.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClienteService {
-  private publicoURL = "http://localhost:8080/api/cliente/cupon"
+  private clienteURL = "http://localhost:8080/api/cliente"
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private tokenService:ToeknService) { }
 
   public listarCupones(): Observable<MensajeDTO> {
-    return this.http.get<MensajeDTO>(`${this.publicoURL}/obtener-cupones`);
+    return this.http.get<MensajeDTO>(`${this.clienteURL}/cupon/obtener-cupones`);
+  }
+
+  public listarOrdenes(): Observable<MensajeDTO> {
+    return this.http.get<MensajeDTO>(`${this.clienteURL}/orden/historial-ordenes/${this.tokenService.getIdCuenta()}`)
   }
 }
