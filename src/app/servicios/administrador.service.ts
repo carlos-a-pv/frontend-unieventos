@@ -12,7 +12,7 @@ import { EditarEventoDTO } from '../dto/evento/editar-evento-dto';
 export class AdministradorService {
 
 
- private adminURL = "http://localhost:8080/api/administrador/evento";
+ private adminURL = "https://programacionavanzada.onrender.com/api/administrador/evento";
 
 
  constructor(private http: HttpClient) { }

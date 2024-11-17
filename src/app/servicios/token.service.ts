@@ -25,12 +25,18 @@ export class ToeknService {
   }
 
   public login(token:string){
-    this.setToken(token);
-    const rol = this.getRol();
-    let destino = (rol == "ADMINISTRADOR") ? "/gestion-eventos" : "/home-cliente";
-    this.router.navigate([destino]).then(()=>{
-      window.location.reload();
-    });
+    if(token == "La cuenta se encuentra inactiva"){
+      this.router.navigate(["/activar-cuenta"]).then(()=>{
+        window.location.reload();
+      })
+    }else{
+      this.setToken(token);
+      const rol = this.getRol();
+      let destino = (rol == "ADMINISTRADOR") ? "/gestion-eventos" : "/home-cliente";
+      this.router.navigate([destino]).then(()=>{
+        window.location.reload();
+      });
+    }
   }
     
   public logout(){

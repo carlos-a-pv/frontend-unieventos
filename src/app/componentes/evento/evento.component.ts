@@ -19,4 +19,8 @@ export class EventoComponent {
   constructor(){
     
   }
+
+  public comprar():void {
+    
+  }
 }

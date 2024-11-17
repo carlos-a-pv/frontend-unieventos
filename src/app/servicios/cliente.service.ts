@@ -8,7 +8,7 @@ import { ToeknService } from './token.service';
   providedIn: 'root'
 })
 export class ClienteService {
-  private clienteURL = "http://localhost:8080/api/cliente"
+  private clienteURL = "https://programacionavanzada.onrender.com/api/cliente"
 
   constructor(private http: HttpClient, private tokenService:ToeknService) { }
 

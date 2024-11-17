@@ -10,7 +10,7 @@ import { LoginDTO } from '../dto/cuenta/login-dto';
 })
 export class AuthService {
 
-  private authURL = "http://localhost:8080/api/auth"
+  private authURL = "https://programacionavanzada.onrender.com/api/auth"
 
   constructor(private http: HttpClient) { }
 
