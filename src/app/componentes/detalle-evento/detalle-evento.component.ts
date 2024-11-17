@@ -4,12 +4,13 @@ import { CommonModule } from '@angular/common';
 import { InformacionEventoDTO } from '../../dto/evento/informacion-evento-dto';
 import { AdministradorService } from '../../servicios/administrador.service';
 import Swal from 'sweetalert2';
+import { FooterComponent } from "../footer/footer.component";
 
 
 @Component({
  selector: 'app-detalle-evento',
  standalone: true,
- imports: [CommonModule],
+ imports: [CommonModule, FooterComponent],
  templateUrl: './detalle-evento.component.html',
  styleUrl: './detalle-evento.component.css'
 })

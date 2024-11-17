@@ -34,7 +34,7 @@ export class AdministradorService {
 
 
  public eliminarEvento(id: string): Observable<MensajeDTO> {
-  console.log(id);
+    console.log(`${this.adminURL}/eliminar-evento/${id}`);
    return this.http.delete<MensajeDTO>(`${this.adminURL}/eliminar-evento/${id}`);
  }
 

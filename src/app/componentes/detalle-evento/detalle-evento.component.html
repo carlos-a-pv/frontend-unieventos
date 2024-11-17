@@ -1,1 +1,32 @@
-<p>{{evento | json}}</p>
+<div class="detalle-evento">
+    <div class="encabezado">
+      <img [src]="evento.imagenPortada" alt="Imagen del Evento" class="imagen-portada" />
+      <h1>{{ evento.nombre }}</h1>
+      <p class="tipo">{{ evento.tipo }}</p>
+    </div>
+  
+    <div class="informacion-basica">
+      <p><strong>Descripción:</strong> {{ evento.descripcion }}</p>
+      <p><strong>Fecha:</strong> {{ evento.fecha | date: 'short' }}</p>
+      <p><strong>Dirección:</strong> {{ evento.direccion }}</p>
+      <p><strong>Ciudad:</strong> {{ evento.ciudad }}</p>
+      <p><strong>Estado:</strong> {{ evento.estado }}</p>
+    </div>
+  
+    <div class="localidades">
+      <h2>Localidades</h2>
+      <ul>
+        <li *ngFor="let localidad of evento.localidades">
+          <strong>{{ localidad.nombre }}</strong>: 
+          Capacidad Máxima: {{ localidad.capacidad }}, 
+          Precio: {{ localidad.precio | currency }}
+        </li>
+      </ul>
+    </div>
+  
+    <div class="acciones">
+      <button routerLink="/gestion-eventos" class="btn-regresar">Regresar</button>
+    </div>
+  </div>
+  <app-footer></app-footer>
+  

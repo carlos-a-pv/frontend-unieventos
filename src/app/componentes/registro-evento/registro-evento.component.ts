@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HeaderAdminComponent } from "../header-admin/header-admin.component";
 import { PostHeaderComponent } from "../post-header/post-header.component";
 import { FooterComponent } from "../footer/footer.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-registro-evento',
   standalone: true,
-  imports: [ReactiveFormsModule, HeaderAdminComponent, PostHeaderComponent, FooterComponent],
+  imports: [ReactiveFormsModule, HeaderAdminComponent, PostHeaderComponent, FooterComponent, CommonModule],
   templateUrl: './registro-evento.component.html',
   styleUrl: './registro-evento.component.css'
 })
@@ -18,7 +19,8 @@ export class RegistroEventoComponent {
 
   constructor(private formBuilder: FormBuilder){ 
     this.crearFormularioEvento();
-    this.tiposDeEvento = ['Concierto', 'Fiesta', 'Teatro', 'Deportes'];
+    this.tiposDeEvento = ['DEPORTE','CONCIERTO','CULTURA','MODA','BELLEZA'];
+    
   }
 
   private crearFormularioEvento(){
@@ -56,6 +58,26 @@ export class RegistroEventoComponent {
    
     }
    }
+     // Getter para acceder al FormArray de localidades
+  get localidades(): FormArray {
+    return this.crearEventoForm.get('localidades') as FormArray;
+  }
+
+  // Función para añadir una nueva localidad
+  public anadirLocalidad() {
+    const nuevaLocalidad = this.formBuilder.group({
+      nombre: ['', [Validators.required]],
+      precio: [0, [Validators.required, Validators.min(0)]],
+      capacidad: [1, [Validators.required, Validators.min(1)]],
+    });
+
+    this.localidades.push(nuevaLocalidad);
+  }
+
+  // Función para eliminar una localidad específica
+  eliminarLocalidad(index: number) {
+    this.localidades.removeAt(index);
+  }
+}
    
 
-}
