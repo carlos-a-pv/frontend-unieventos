@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class PublicoService {
 
-  private publicoURL = "http://localhost:8080/api/publico"
+  private publicoURL = "https://programacionavanzada.onrender.com/api/publico"
 
   constructor(private http: HttpClient) { }
 
