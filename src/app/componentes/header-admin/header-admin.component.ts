@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ToeknService } from '../../servicios/token.service';
 
 @Component({
   selector: 'app-header-admin',
@@ -8,5 +9,13 @@ import { Component } from '@angular/core';
   styleUrl: './header-admin.component.css'
 })
 export class HeaderAdminComponent {
+
+  constructor(private tokenService:ToeknService){
+
+  }
+
+  public logout():void{
+    this.tokenService.logout();
+  }
 
 }

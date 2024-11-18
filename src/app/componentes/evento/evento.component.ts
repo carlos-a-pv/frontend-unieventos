@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-evento',
@@ -16,11 +17,15 @@ export class EventoComponent {
   @Input() urlImagenPoster!:String;
 
   
-  constructor(){
+  constructor(private router:Router){
     
   }
 
   public comprar():void {
     
+  }
+
+  public irDetalleEvento():void{
+    // this.router.navigate(["/detalle-evento/:id"])
   }
 }

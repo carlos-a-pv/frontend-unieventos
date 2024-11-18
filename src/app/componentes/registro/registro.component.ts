@@ -5,6 +5,7 @@ import { AuthService } from '../../servicios/auth.service';
 import { CrearCuentaDTO } from '../../dto/cuenta/crear-cuenta-dto';
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class RegistroComponent{
  registroForm!: FormGroup;
 
 
- constructor(private formBuilder: FormBuilder, private authService: AuthService) { 
+ constructor(private formBuilder: FormBuilder, private authService: AuthService, private router:Router) { 
   this.crearFormulario();
  }
 
@@ -56,6 +57,10 @@ passwordsMatchValidator(formGroup: FormGroup) {
           icon: 'success',
           confirmButtonText: 'Aceptar'
         })
+        this.router.navigate(['/login']).then(()=>{
+          window.location.reload();
+        })
+
       },
       error: (error)=>{
         Swal.fire({
